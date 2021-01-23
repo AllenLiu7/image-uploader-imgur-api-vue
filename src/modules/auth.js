@@ -1,4 +1,4 @@
-//import api from '../api/imgur'
+import api from '../api/imgur'
 
 export default {
     state: () => ({
@@ -8,7 +8,7 @@ export default {
         isLoggedin: state => !!state.token
     },
     actions:{
-        logIn: ()=>console.log('connected'),
+        logIn: ()=>api.login(),
         logOut: ({commit})=>{
             commit('setToken', null)
         }
