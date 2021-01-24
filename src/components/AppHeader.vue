@@ -2,17 +2,21 @@
   <div class="ui secondary pointing menu">
     <a class="item active"> Home </a>
     <div class="right menu">
-      <a class="ui item" @click="logIn"> Logout </a>
+      <div v-if="isLoggedin" class="ui item">
+        <a>Logout</a>
+      </div>
+      <a v-else class="ui item" @click="login"> Login </a>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "AppHeader",
-  methods: mapActions(["logIn"]),
+  computed: mapGetters(["isLoggedin"]),
+  methods: mapActions(["login"]),
 };
 </script>
 
