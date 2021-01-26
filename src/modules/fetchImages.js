@@ -8,11 +8,11 @@ export default {
         getImages: state=>state.images
     },
     actions: {
-        async fetchImages({rootState}){
+        async fetchImages({rootState, commit}){
             const {token, user_name} = rootState.auth;
-            const data = await api.fetchImages(token, user_name);
-            console.log(data)
-            //commit('setImages', data);
+            const response = await api.fetchImages(token, user_name);
+            console.log(response.data.data)
+            commit('setImages', response.data.data);
         }
         
     },
