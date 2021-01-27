@@ -5,7 +5,7 @@
       :key="image.id"
       :src="image.link"
       alt="image"
-      width="50"
+      width="90"
       height="60"
     />
   </div>

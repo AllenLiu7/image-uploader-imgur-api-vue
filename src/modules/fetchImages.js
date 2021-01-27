@@ -13,8 +13,13 @@ export default {
             const response = await api.fetchImages(token, user_name);
             console.log(response.data.data)
             commit('setImages', response.data.data);
+        },
+        async uploadImages({rootState,commit},images){
+            const {token} = rootState.auth
+             await api.uploadImages(token, images)
+            
+            commit()
         }
-        
     },
     mutations: {
         setImages: (state, images)=>{

@@ -18,5 +18,15 @@ export default {
     },
     fetchImages(token, user){
         return axios.get(`${IMGUR_API}/3/account/${user}/images`, {headers:{Authorization: `Bearer ${token}`}})
+    },
+    uploadImages(token, images){
+        Array.from(images).map(image=>{
+            const formData = new FormData;
+            formData.append('image', image)
+
+            return   axios.post(`${IMGUR_API}/3/upload`, formData, {headers: {
+                Authorization: `Bearer ${token}`
+            }})
+        })
     }
 }
