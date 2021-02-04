@@ -1,4 +1,5 @@
-# image
+# image uploader
+This web app allow users to sign in to their own account of Imgur to upload and display their images.
 
 ## Project setup
 ```
